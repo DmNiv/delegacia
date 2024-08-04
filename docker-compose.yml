@@ -1,0 +1,33 @@
+version: '3.7'
+services:
+  delegacia_facil-postgresql:
+    image: postgres:10.17
+    container_name: delegacia_facil-postgresql
+    environment:
+      POSTGRES_DB: delegacia_facil
+      POSTGRES_USER: oficina
+      POSTGRES_PASSWORD: delegaciafacil
+    volumes:
+      - ./initdb.sh:/docker-entrypoint-initdb.d/initdb.sh
+    ports:
+      - "5432:5432"
+    networks:
+      - delegacia_facil-network
+
+  # phishing_quest-flyway-phishing_quest:
+  #   image: flyway/flyway:6.3.1
+  #   container_name: phishingquest-flyway-phishing_quest
+  #   command: -configFiles=/flyway/conf/flyway.config -locations=filesystem:/flyway/sql -connectRetries=60 migrate
+  #   volumes:
+  #     - /c/Users/logan/phishing-quest-api/migrate/br/changelogs:/flyway/sql
+  #     - D:\PC\Documentos\projetos-carol\delegacia_facil_api\migrate\br\flyway.config:/flyway/conf/flyway.config
+  #   networks:
+  #     - phishing_quest-network
+networks:
+  delegacia_facil-network:
+    driver: bridge
+    name: delegacia_facil-network
+
+volumes:
+  volume-redis:
+    driver: local
