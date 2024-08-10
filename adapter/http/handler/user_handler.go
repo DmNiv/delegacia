@@ -34,6 +34,23 @@ func (uh *UserHandler) CreateUser(c *gin.Context) {
 	c.JSON(http.StatusOK, user)
 }
 
+// Login Realiza login usando credenciais do usuário
+func (uh *UserHandler) Login(c *gin.Context) {
+	var userLoginDTO *domain.UserLoginDTO
+	if err := c.ShouldBindJSON(&userLoginDTO); err != nil {
+		c.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
+		return
+	}
+
+	user, err := uh.UserUseCase.Login(userLoginDTO)
+	if err != nil {
+		c.JSON(http.StatusInternalServerError, gin.H{"error": err.Error()})
+		return
+	}
+
+	c.JSON(http.StatusOK, user)
+}
+
 // GetUser lida com a obtenção de um usuário pelo ID
 func (uh *UserHandler) GetUser(c *gin.Context) {
 	id := c.Param("id")

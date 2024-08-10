@@ -6,7 +6,7 @@ import (
 	"test/core/usecase"
 	"test/postgres"
 
-	"github.com/jinzhu/gorm"
+	"gorm.io/gorm"
 )
 
 type Container struct {

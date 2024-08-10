@@ -9,7 +9,6 @@ import (
 
 var DB *gorm.DB
 
-// InitDB inicializa a conexão com o banco de dados e retorna uma instância de *gorm.DB
 func InitDB() *gorm.DB {
 	var err error
 	fmt.Println("Connecting to PostgreSQL...")
