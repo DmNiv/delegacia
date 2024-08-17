@@ -12,6 +12,7 @@ func SetupRouter(cont *container.Container) *gin.Engine {
 
 	// Configuração das rotas com os handlers do container
 	router.SetupUserRoutes(r, cont.UserHandler)
+	router.SetupDelegaciasRoutes(r, cont.DelegaciaHandler)
 
 	return r
 }
