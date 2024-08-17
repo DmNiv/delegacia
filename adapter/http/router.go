@@ -1,8 +1,8 @@
 package http
 
 import (
-	"test/adapter/http/router"
-	"test/container"
+	"delegacia-facil/adapter/http/router"
+	"delegacia-facil/container"
 
 	"github.com/gin-gonic/gin"
 )

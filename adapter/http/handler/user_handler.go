@@ -1,9 +1,9 @@
 package handler
 
 import (
+	"delegacia-facil/core/usecase"
+	"delegacia-facil/domain"
 	"net/http"
-	"test/core/usecase"
-	"test/domain"
 
 	"github.com/gin-gonic/gin"
 )

@@ -1,17 +1,17 @@
 package handler
 
 import (
+	"delegacia-facil/core/usecase"
 	"github.com/gin-gonic/gin"
 	"net/http"
 	"strconv"
-	"test/core/usecase"
 )
 
 type DelegaciaHandler struct {
 	delegaciaUseCase *usecase.DelegaciaUseCase
 }
 
-// NewUserHandler cria uma nova instância de UserHandler
+// NewDelegaciaHandler cria uma nova instância de DelegaciaHandler
 func NewDelegaciaHandler(duc *usecase.DelegaciaUseCase) *DelegaciaHandler {
 	return &DelegaciaHandler{delegaciaUseCase: duc}
 }

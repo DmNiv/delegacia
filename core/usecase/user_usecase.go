@@ -1,9 +1,9 @@
 package usecase
 
 import (
+	"delegacia-facil/adapter/repository"
+	"delegacia-facil/domain"
 	"errors"
-	"test/adapter/repository"
-	"test/domain"
 	"time"
 
 	"golang.org/x/crypto/bcrypt"

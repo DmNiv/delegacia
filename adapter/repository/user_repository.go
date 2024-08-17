@@ -1,7 +1,7 @@
 package repository
 
 import (
-	"test/domain"
+	"delegacia-facil/domain"
 
 	"github.com/google/uuid"
 	"gorm.io/gorm"

@@ -1,4 +1,4 @@
-module test
+module delegacia-facil
 
 go 1.22.3
 

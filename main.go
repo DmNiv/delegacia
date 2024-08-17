@@ -1,14 +1,14 @@
 package main
 
 import (
-	"test/adapter/http"
-	"test/container"
+	"delegacia-facil/adapter/http"
+	"delegacia-facil/container"
 )
 
 func main() {
 	// Inicializa o container de dependências
 	cont := container.NewContainer()
-	
+
 	// Configura o router com os handlers do container
 	r := http.SetupRouter(cont)
 

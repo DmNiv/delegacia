@@ -1,7 +1,7 @@
 version: '3.7'
 services:
   delegacia-facil-postgresql:
-    image: postgres:10.17
+    image: postgres:16.4
     container_name: delegacia-facil-postgresql
     environment:
       POSTGRES_DB: delegacia-facil

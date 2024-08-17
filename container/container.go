@@ -1,24 +1,26 @@
 package container
 
 import (
-	"test/adapter/http/handler"
-	"test/adapter/repository"
-	"test/core/usecase"
-	"test/postgres"
+	"delegacia-facil/adapter/http/handler"
+	"delegacia-facil/adapter/repository"
+	"delegacia-facil/core/usecase"
+	"delegacia-facil/postgres"
 
 	"gorm.io/gorm"
 )
 
 type Container struct {
-	DB               *gorm.DB
-	UserRepo         repository.UserRepository
-	UserUseCase      *usecase.UserUseCase
-	UserHandler      *handler.UserHandler
+	DB *gorm.DB
+
+	UserRepo    repository.UserRepository
+	UserUseCase *usecase.UserUseCase
+	UserHandler *handler.UserHandler
+
 	DelegaciaRepo    repository.DelegaciaRepository
 	DelegaciaUseCase *usecase.DelegaciaUseCase
 	DelegaciaHandler *handler.DelegaciaHandler
 }
- 
+
 func NewContainer() *Container {
 	// Inicializa o banco de dados
 	db := postgres.InitDB()
@@ -36,13 +38,13 @@ func NewContainer() *Container {
 	delegaciaHandler := handler.NewDelegaciaHandler(delegaciaUseCase)
 
 	return &Container{
-		DB:          db,
+		DB: db,
 
 		UserRepo:    userRepo,
 		UserUseCase: userUseCase,
 		UserHandler: userHandler,
 
-		DelegaciaRepo: delegaciasRepo,
+		DelegaciaRepo:    delegaciasRepo,
 		DelegaciaUseCase: delegaciaUseCase,
 		DelegaciaHandler: delegaciaHandler,
 	}

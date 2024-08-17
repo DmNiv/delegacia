@@ -1,8 +1,8 @@
 package usecase
 
 import (
-	"test/adapter/repository"
-	"test/domain"
+	"delegacia-facil/adapter/repository"
+	"delegacia-facil/domain"
 )
 
 type DelegaciaUseCase struct {

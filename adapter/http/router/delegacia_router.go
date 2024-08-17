@@ -1,7 +1,7 @@
 package router
 
 import (
-	"test/adapter/http/handler"
+	"delegacia-facil/adapter/http/handler"
 
 	"github.com/gin-gonic/gin"
 )
