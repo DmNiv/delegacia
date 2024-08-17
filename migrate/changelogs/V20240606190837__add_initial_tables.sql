@@ -10,7 +10,7 @@ CREATE TABLE IF NOT EXISTS delegacia_facil.users (
                                                     updated_at TIMESTAMPTZ NOT NULL DEFAULT NOW()
 );
 
-CREATE TABLE delegacia (
+CREATE TABLE delegacia_facil.delegacia (
                            id UUID PRIMARY KEY,
                            nome VARCHAR(255) NOT NULL,
                            endereco VARCHAR(255),
@@ -18,4 +18,3 @@ CREATE TABLE delegacia (
                            latitude DOUBLE PRECISION,
                            longitude DOUBLE PRECISION
 );
-

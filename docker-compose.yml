@@ -4,8 +4,8 @@ services:
     image: postgres:10.17
     container_name: delegacia-facil-postgresql
     environment:
-      POSTGRES_DB: delegacia_facil
-      POSTGRES_USER: oficina_futuro
+      POSTGRES_DB: delegacia-facil
+      POSTGRES_USER: oficina-futuro
       POSTGRES_PASSWORD: delegaciafacil
     volumes:
       - ./initdb.sh:/docker-entrypoint-initdb.d/initdb.sh
@@ -14,32 +14,22 @@ services:
     networks:
       - delegacia-facil-network
 
-  delegacia-facil-flyway-delegacia-facil:
+  delegacia-facil-flyway:
     image: flyway/flyway:6.3.1
-    container_name: delegaciafacil-flyway-phishing_quest
+    container_name: delegacia-facil-flyway
     command: -configFiles=/flyway/conf/flyway.config -locations=filesystem:/flyway/sql -connectRetries=60 migrate
     volumes:
-      - ./../migrate/changelogs:/flyway/sql
-      - ./../migrate/flyway.config:/flyway/conf/flyway.config
-    networks:
-      - delegacia-facil-network
-
-  delegacia-facil-api:
-    build: .
-    container_name: delegacia-facil-api
-    ports:
-      - "8080:8080"
-    networks:
-      - delegacia-facil-network
+      - ./migrate/changelogs:/flyway/sql
+      - ./migrate/flyway.config:/flyway/conf/flyway.config
+    environment:
+      FLYWAY_URL: jdbc:postgresql://delegacia-facil-postgresql:5432/delegacia-facil
+      FLYWAY_USER: oficina-futuro
+      FLYWAY_PASSWORD: delegaciafacil
     depends_on:
       - delegacia-facil-postgresql
-      - delegacia-facil-flyway-delegacia-facil
+    networks:
+      - delegacia-facil-network
 
 networks:
   delegacia-facil-network:
     driver: bridge
-    name: delegacia-facil-network
-
-volumes:
-  volume-redis:
-    driver: local

@@ -46,3 +46,11 @@ T
 $adapter/repository/delegacia_repo.go,6\5\658abde60b5e60151362045dcc2d16f13fff4f32
 7
 main.go,0\6\0607f785dfa3c3861b3239f6723eb276d8056461
+k
+;migrate/changelogs/V202408171718__add_enums_table_delegacia,7\d\7d881ef5222d49634509f9b69b9e9421654fe82c
+q
+Amigrate/changelogs/V20240817171859__add_enums_table_delegacia.sql,8\9\89bbc844f99cbc1fb53c4a7cfee99c2994286390
+]
+-.idea/sonarlint/securityhotspotstore/index.pb,8\8\88a9255124c95bdc913197c120a8d560edc59c8e
+S
+#.idea/sonarlint/issuestore/index.pb,9\f\9fe84ebb15faf917b7def6236dba604453cc61e0
