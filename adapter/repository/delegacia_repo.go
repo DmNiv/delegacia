@@ -8,7 +8,7 @@ import (
 
 type DelegaciaRepository interface {
 	GetAll() ([]*domain.Delegacia, error)
-	GetByHour(horario24h bool) ([]*domain.Delegacia, error)
+	GetByHour(diaTodo bool) ([]*domain.Delegacia, error)
 }
 
 type delegaciaRepository struct {
@@ -19,10 +19,10 @@ func NewdelegaciaRepository(db *gorm.DB) DelegaciaRepository {
 	return &delegaciaRepository{db: db}
 }
 
-func (r *delegaciaRepository) GetByHour(horario24h bool) ([]*domain.Delegacia, error) {
+func (r *delegaciaRepository) GetByHour(diaTodo bool) ([]*domain.Delegacia, error) {
 	var delegacias []*domain.Delegacia
 
-	err := r.db.Where("horario24h = ?", horario24h).Find(&delegacias).Error
+	err := r.db.Where("dia_todo = ?", diaTodo).Find(&delegacias).Error
 	if err != nil {
 		return nil, err
 	}

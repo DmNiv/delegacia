@@ -27,14 +27,14 @@ func (dh *DelegaciaHandler) ListaDelegacias(c *gin.Context) {
 }
 
 func (dh *DelegaciaHandler) FiltroDelegacias(c *gin.Context) {
-	horario24hStr := c.DefaultQuery("horario24h", "false")
-	horario24h, err := strconv.ParseBool(horario24hStr)
+	diaTodoStr := c.DefaultQuery("diaTodo", "false")
+	diaTodo, err := strconv.ParseBool(diaTodoStr)
 	if err != nil {
-		c.JSON(http.StatusBadRequest, gin.H{"error": "Invalid value for horario24h, expected a boolean"})
+		c.JSON(http.StatusBadRequest, gin.H{"error": "Invalid value for diaTodo, expected a boolean"})
 		return
 	}
 
-	delegacias, err := dh.delegaciaUseCase.FiltraDelegacias(horario24h)
+	delegacias, err := dh.delegaciaUseCase.FiltraDelegacias(diaTodo)
 	if err != nil {
 		c.JSON(http.StatusInternalServerError, gin.H{"error": err.Error()})
 		return
