@@ -14,7 +14,8 @@ CREATE TABLE delegacia_facil.delegacia (
                            id UUID PRIMARY KEY,
                            nome VARCHAR(255) NOT NULL,
                            endereco VARCHAR(255),
-                           horario24h BOOLEAN,
+                           dia_todo BOOLEAN,
                            latitude DOUBLE PRECISION,
-                           longitude DOUBLE PRECISION
+                           longitude DOUBLE PRECISION,
+                           map_url VARCHAR(300)
 );
