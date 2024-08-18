@@ -7,7 +7,7 @@ import (
 )
 
 func SetupDelegaciasRoutes(router *gin.Engine, delegaciaHandler *handler.DelegaciaHandler) {
-	delegaciasRoutes := router.Group("/delegacias")
+	delegaciasRoutes := router.Group("/api/v1/delegacias")
 	{
 		delegaciasRoutes.GET("/lista-delegacias", delegaciaHandler.ListaDelegacias)
 		delegaciasRoutes.GET("/filtro", delegaciaHandler.FiltroDelegacias)
