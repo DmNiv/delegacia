@@ -1,4 +1,4 @@
-version: '3.7'
+version: "3.7"
 services:
   delegacia-facil-postgresql:
     image: postgres:16.4
@@ -7,6 +7,7 @@ services:
       POSTGRES_DB: delegacia-facil
       POSTGRES_USER: oficina-futuro
       POSTGRES_PASSWORD: delegaciafacil
+      POSTGRES_HOST_AUTH_METHOD: md5  # Adicionar esta linha
     volumes:
       - ./initdb.sh:/docker-entrypoint-initdb.d/initdb.sh
     ports:
@@ -14,8 +15,9 @@ services:
     networks:
       - delegacia-facil-network
 
+
   delegacia-facil-flyway:
-    image: flyway/flyway:6.3.1
+    image: flyway/flyway:7.0.2 # ou a versão mais recente disponível
     container_name: delegacia-facil-flyway
     command: -configFiles=/flyway/conf/flyway.config -locations=filesystem:/flyway/sql -connectRetries=60 migrate
     volumes:
