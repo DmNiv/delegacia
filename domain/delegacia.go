@@ -10,4 +10,5 @@ type Delegacia struct {
 	Latitude  float64   `json:"latitude"`
 	Longitude float64   `json:"longitude"`
 	MapUrl    string    `json:"mapUrl"`
+	Telefone  string    `json:"telefone"`
 }

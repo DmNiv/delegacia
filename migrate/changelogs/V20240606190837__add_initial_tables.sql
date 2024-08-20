@@ -17,5 +17,6 @@ CREATE TABLE delegacia_facil.delegacia (
                            dia_todo BOOLEAN,
                            latitude DOUBLE PRECISION,
                            longitude DOUBLE PRECISION,
-                           map_url VARCHAR(300)
+                           map_url VARCHAR(300),
+                           telefone VARCHAR(16)
 );
