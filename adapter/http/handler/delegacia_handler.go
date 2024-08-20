@@ -27,7 +27,7 @@ func (dh *DelegaciaHandler) ListaDelegacias(c *gin.Context) {
 }
 
 func (dh *DelegaciaHandler) FiltroDelegacias(c *gin.Context) {
-	diaTodoStr := c.DefaultQuery("diaTodo", "false")
+	diaTodoStr := c.DefaultQuery("diaTodo", "true")
 	diaTodo, err := strconv.ParseBool(diaTodoStr)
 	if err != nil {
 		c.JSON(http.StatusBadRequest, gin.H{"error": "Invalid value for diaTodo, expected a boolean"})
